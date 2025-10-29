@@ -2,11 +2,8 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from torchvision.models import resnet18, ResNet18_Weights, efficientnet_b0, EfficientNet_B0_Weights
-import ssl
-
 from scripts.occlusion import apply_occlusion
 
-ssl._create_default_https_context = ssl._create_unverified_context
 
 data_dir = "../data"
 batch_size = 64
@@ -95,6 +92,7 @@ accuracy_eff_occ = compute_accuracy(model_efficientnet, dataloader, occlusion=Tr
 
 print(f"ResNet18 Accuracy (occluded 30%): {accuracy_resnet_occ:.4f}")
 print(f"EfficientNet-B0 Accuracy (occluded 30%): {accuracy_eff_occ:.4f}")
+print()
 
 #occluded accuracy (100%)
 accuracy_resnet_occ = compute_accuracy(model_resnet, dataloader, occlusion=True, occlusion_percent=100)
