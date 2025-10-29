@@ -96,8 +96,18 @@ accuracy_eff_occ = compute_accuracy(model_efficientnet, dataloader, occlusion=Tr
 print(f"ResNet18 Accuracy (occluded 30%): {accuracy_resnet_occ:.4f}")
 print(f"EfficientNet-B0 Accuracy (occluded 30%): {accuracy_eff_occ:.4f}")
 
+#occluded accuracy (100%)
+accuracy_resnet_occ = compute_accuracy(model_resnet, dataloader, occlusion=True, occlusion_percent=100)
+accuracy_eff_occ = compute_accuracy(model_efficientnet, dataloader, occlusion=True, occlusion_percent=100)
+
+print(f"ResNet18 Accuracy (occluded 100%): {accuracy_resnet_occ:.4f}")
+print(f"EfficientNet-B0 Accuracy (occluded 100%): {accuracy_eff_occ:.4f}")
+
 # ResNet18 Accuracy (original): 0.8407
 # EfficientNet-B0 Accuracy (original): 0.8594
 #
 # ResNet18 Accuracy (occluded 30%): 0.6643
 # EfficientNet-B0 Accuracy (occluded 30%): 0.8149
+#
+# ResNet18 Accuracy (occluded 100%): 0.0000
+# EfficientNet-B0 Accuracy (occluded 100%): 0.0000
