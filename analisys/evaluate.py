@@ -38,6 +38,7 @@ model_efficientnet = efficientnet_b0(weights=EfficientNet_B0_Weights.DEFAULT).to
 model_efficientnet.eval()
 
 #Mapowanie klas ImageNet do cat/dog
+#https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/
 cat_indices = list(range(281, 294))
 dog_indices = list(range(151, 269))
 
@@ -94,3 +95,9 @@ accuracy_eff_occ = compute_accuracy(model_efficientnet, dataloader, occlusion=Tr
 
 print(f"ResNet18 Accuracy (occluded 30%): {accuracy_resnet_occ:.4f}")
 print(f"EfficientNet-B0 Accuracy (occluded 30%): {accuracy_eff_occ:.4f}")
+
+# ResNet18 Accuracy (original): 0.8407
+# EfficientNet-B0 Accuracy (original): 0.8594
+#
+# ResNet18 Accuracy (occluded 30%): 0.6643
+# EfficientNet-B0 Accuracy (occluded 30%): 0.8149
